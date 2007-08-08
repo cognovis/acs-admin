@@ -7,7 +7,6 @@ ad_page_contract {
 
 } {
     {checked_by_default_p:boolean 0}
-    {update_only_p 0}
 }
 
 ad_return_top_of_page "[apm_header "Package Installation"]
@@ -127,9 +126,9 @@ function checkAll() {
     }
 	
     if { $checked_by_default_p } {
-        set widget [apm_package_selection_widget -update_only_p $update_only_p $pkg_info_list $pkg_key_list $pkg_key_list]
+        set widget [apm_package_selection_widget $pkg_info_list $pkg_key_list $pkg_key_list]
     } else {
-        set widget [apm_package_selection_widget -update_only_p $update_only_p $pkg_info_list]
+        set widget [apm_package_selection_widget $pkg_info_list]
     }
 
     if {[empty_string_p $widget]} {
