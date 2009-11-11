@@ -8,7 +8,8 @@ set context [list [list "../developer" "Developer's Administration"] $page_title
 template::multirow create caches name entries size max flushed hit_rate
 
 foreach cache [lsort -dictionary [ns_cache_names]] {
-    if {[regexp {(.*)} $cache match suffix] || [string equal $cache "util_memoize"]} {
+    if {[regexp {util_memoize_(.*)} $cache match suffix] \
+	    || [string equal $cache "util_memoize"]} {
 	if {![info exists suffix] || [string equal "" $suffix]} {
 	    set name "util_memoize"
 	    set match "util_memoize"
@@ -22,7 +23,8 @@ foreach cache [lsort -dictionary [ns_cache_names]] {
 	set entries $stats_array(entries)
 	set flushed $stats_array(flushed)
 	set hit_rate $stats_array(hitrate)
-	template::multirow append caches $name $entries $size $max $flushed $hit_rate
+	template::multirow append caches $name $entries $size $max \
+		$flushed $hit_rate
     }
     set match ""
     set suffix ""

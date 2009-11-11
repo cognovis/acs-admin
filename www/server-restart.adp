@@ -8,7 +8,7 @@
 
 <if @windows_p@>
 	<font color=red><b>
-	On Windows, if @po;noquote@ doesn't start automatically, as it should:
+	On Windows, you have to restart @po;noquote@ manually:
 	</b></font>
 	<br>&nbsp;<br>Either:<br>
 	<ul>
